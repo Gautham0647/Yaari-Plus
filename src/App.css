@@ -1,3 +1,85 @@
+/* Css-reset */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--z-index-1: 1;
+	--z-index-2: 2;
+	--z-index-3: 3;
+	--z-index-4: 4;
+	--z-index-5: 5;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	background-color: #e9e9f2;
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	font-size: 1.6rem;
+	font-family: "IBM Plex Sans", sans-serif;
+}
+
+/* responsive images */
+img,
+picture {
+	max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Default scroll bar styles  */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 4px;
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--COLOR-PRIMARY);
+	border-radius: 5px;
+}
+
+
 .App {
   text-align: center;
 }
@@ -13,26 +95,42 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+/* .App-header {
+  background-color: #22201c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.brand-title {
+  font-size: 3rem;
+  color: #d9d9d9;
 }
+
+.brand-title span {
+  color: #ffde59;
+}
+
+.brand-description {
+  font-size: 1.4rem;
+}
+
+.links {
+  display: flex;
+}
+
+.links a {
+  color: #d9d9d9;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+
+

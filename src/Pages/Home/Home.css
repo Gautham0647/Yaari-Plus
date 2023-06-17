@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+/* min-height: 100vh; */
+height: max-content;
+grid-gap: 1rem;
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-areas: "header header header"
+"aside1 main aside2"
+"aside1 main aside2"
+"aside1 main aside2";
+}
+
