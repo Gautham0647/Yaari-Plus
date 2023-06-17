@@ -1,0 +1,16 @@
+
+
+.post-wrapper{
+    background-color: white;
+    padding: 0.5rem;
+    width: 650px;
+    height: 200px;
+    margin: 4rem ;
+    display: block;
+}
+
+.post-item-container{
+    display:flex
+    
+}
+
