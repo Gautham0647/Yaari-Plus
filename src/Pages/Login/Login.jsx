@@ -17,10 +17,10 @@ export const Login = (e) => {
       body: JSON.stringify(body),
     });
 
-    console.log(respones)
+    
 
     const  encodedToken = await respones.json();
-    console.log(encodedToken)
+    //console.log(encodedToken)
     if (encodedToken) {
       toggleAuth();
       localStorage.setItem("token",JSON.stringify(encodedToken))
