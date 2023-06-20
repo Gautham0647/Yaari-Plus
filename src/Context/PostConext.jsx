@@ -14,7 +14,7 @@ export const PostProvider = ({ children }) => {
     try {
       const postResponse = await fetch("/api/posts");
       const { posts } = await postResponse.json();
-      
+
       if (postResponse.status === 200) {
         postDispatch({
           type: "SET-POST",
@@ -27,7 +27,6 @@ export const PostProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.count();
     getAllPosts();
   }, []);
 

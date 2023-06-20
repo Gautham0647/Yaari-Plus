@@ -1,8 +1,10 @@
+//import { useBookmark } from "../../Context/BookmarkContext";
 import { usePost } from "../../Context/PostConext";
 import "./PostFeedCard.css";
 
 export const PostFeedCard = ({ post }) => {
   const { getLikePostHandler } = usePost();
+  //const {addToBookmarkHandler} = useBookmark();
   return (
     <div>
       <div className="post-wrapper">
@@ -21,7 +23,10 @@ export const PostFeedCard = ({ post }) => {
                 <button>comment</button>
               </div>
               <div>
-                <button>bookmarks</button>
+                <button  
+             
+
+                >bookmarks</button>
               </div>
               <div>
                 <button>share</button>
