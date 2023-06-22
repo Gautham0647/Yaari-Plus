@@ -6,6 +6,10 @@ export const postReducer = (state, action) => {
       return [...action.payload];
     case "LIKE-COUNT":
       return [...action.payload];
+    case "DISLIKE-COUNT":
+      return [...action.payload];
+    case "DELETE-POST":
+      return [...action.payload];
 
     default:
       return [...state];

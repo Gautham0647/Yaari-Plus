@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { PostProvider } from "./Context/PostConext";
 import { AuthProvider } from "./Context/AuthContext";
+import { BookmarkProvider } from "./Context/BookmarkContext";
 
 // Call make Server
 makeServer();
@@ -17,7 +18,9 @@ root.render(
     <Router>
       <AuthProvider>
         <PostProvider>
-          <App />
+          <BookmarkProvider>
+            <App />
+          </BookmarkProvider>
         </PostProvider>
       </AuthProvider>
     </Router>

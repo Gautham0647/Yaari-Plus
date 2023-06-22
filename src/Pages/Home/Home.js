@@ -45,8 +45,12 @@ const Home = () => {
 
       <div>
         <h2>Lastest Post</h2>
-        {posts.map((post) => {
-          return <PostFeedCard post={post} />;
+        {posts.map((post,i) => {
+
+          return <div key={i}>
+           <PostFeedCard post={post} />
+           </div>
+           ;
         })}
       </div>
     </div>

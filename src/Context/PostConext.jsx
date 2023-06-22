@@ -50,12 +50,55 @@ export const PostProvider = ({ children }) => {
     }
   };
 
+  const getDislikePostHandler = async (_id) => {
+    try {
+      const postResponse = await fetch(`/api/posts/dislike/${_id}`, {
+        headers: { authorization: token },
+        method: "POST",
+      });
+
+      const { posts } = await postResponse.json();
+
+      if (postResponse.status === 201) {
+        postDispatch({
+          type: "DISLIKE-COUNT",
+          payload: posts,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const deletePostHandler = async (_id) => {
+    console.log("id", _id);
+    try {
+      const postResponse = await fetch(`/api/user/posts/${_id}`, {
+        headers: { authorization: token },
+        method: "DELETE",
+      });
+
+      const somthing = await postResponse.json();
+      console.log("some", somthing);
+      if (postResponse.status === 201) {
+        postDispatch({
+          type: "DELETE-POST",
+          payload: posts,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <PostContext.Provider
       value={{
         posts,
         postDispatch,
         getLikePostHandler,
+        getDislikePostHandler,
+        deletePostHandler,
       }}
     >
       {children}
