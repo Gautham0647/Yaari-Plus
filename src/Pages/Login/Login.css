@@ -1,0 +1,34 @@
+.Login-wrapper{
+    background-color: #e2e1f2;
+    width: 350px;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-left: 35%;
+    
+    padding: 20px; 
+   
+}
+
+img{
+    width: 150px;
+    height:100px
+}
+
+label{
+    margin: 5px;
+    display: flex;
+    flex: auto;
+}
+
+input{
+    width: 100%;
+    display: flex;
+    flex: auto;
+
+}
+
+.login-btn{
+    margin: 10px;
+}

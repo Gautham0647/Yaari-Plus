@@ -73,7 +73,7 @@ export const PostProvider = ({ children }) => {
   const deletePostHandler = async (_id) => {
     console.log("id", _id);
     try {
-      const postResponse = await fetch(`/api/user/posts/${_id}`, {
+      const postResponse = await fetch(`/api/posts/${_id}`, {
         headers: { authorization: token },
         method: "DELETE",
       });
