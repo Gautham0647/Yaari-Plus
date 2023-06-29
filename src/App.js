@@ -7,11 +7,15 @@ import Bookmarks from "./Pages/Bookmarks/Bookmarks";
 import { Login } from "./Pages/Login/Login";
 import { useAuth } from "./Context/AuthContext";
 import { RequiredAuth } from "./Components/RequiredAuth/RequiredAuth";
+import { Navbar } from "./Components/Navbar/Navbar";
 
 function App() {
   const { isAuth } = useAuth();
   return (
     <div className="App">
+     <div>
+        <Navbar />
+      </div>
       <Routes>
         <Route
           path="/"

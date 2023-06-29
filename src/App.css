@@ -54,11 +54,11 @@ body {
 	font-family: "IBM Plex Sans", sans-serif;
 }
 
-/* responsive images */
+ /* responsive images */
 img,
 picture {
 	max-width: 100%;
-}
+} 
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -126,11 +126,6 @@ select {
   display: flex;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
-}
 
 
 

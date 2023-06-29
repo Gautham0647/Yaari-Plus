@@ -1,0 +1,18 @@
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #302aaf;
+    border: 2px solid rgb(69, 55, 182);
+}
+
+.logo-name{
+    font-family: 'Fasthand', cursive;
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.Navlink{
+    text-decoration: none;
+}

@@ -1,49 +1,57 @@
+import { AiFillLike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
+import {FaRegComment} from "react-icons/fa"
+import {BsBookmark} from "react-icons/bs"
+import {MdDelete} from "react-icons/md"
+import {FaShareAlt} from "react-icons/fa"
+
 import { useBookmark } from "../../Context/BookmarkContext";
 import { usePost } from "../../Context/PostConext";
 import "./PostFeedCard.css";
 
 export const PostFeedCard = ({ post }) => {
-  const { getLikePostHandler, getDislikePostHandler ,deletePostHandler} = usePost();
+  const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
+    usePost();
   const { addToBookmarkHandler } = useBookmark();
   return (
     <div>
       <div className="post-wrapper">
         <div className="post-item-container">
-          <div>for img</div>
+          <div className="avatar-img">for img</div>
           <div className="post-text">
             <div>
               <span>{post.username}</span> {post.updatedAt}
             </div>
             <div> {post.content} </div>
+
             <div className="post-footer">
               <div>
-                {post.likes.likeCount === 0 ? (
-                  <button onClick={() => getLikePostHandler(post._id)}>
-                    like
-                  </button>
-                ) : (
-                  <button onClick={() => getDislikePostHandler(post._id)}>
-                    dislike
-                  </button>
-                )}
-
                 {post.likes.likeCount}
+                <AiFillLike onClick={() => getLikePostHandler(post._id)} />
               </div>
               <div>
-                <button>comment</button>
+                <AiFillDislike
+                  onClick={() => getDislikePostHandler(post._id)}
+                />
               </div>
               <div>
-                <button onClick={() => addToBookmarkHandler(post._id)}>
-                  bookmarks
-                </button>
+                <FaRegComment/>
               </div>
               <div>
-                <button>share</button>
+                
+                 <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
+                
               </div>
               <div>
-                <button 
-                 onClick = { ()=>{deletePostHandler(post._id)}}
-                >Delete</button>
+                <FaShareAlt/>
+              </div>
+              <div>
+                <MdDelete
+                  onClick={() => {
+                    deletePostHandler(post._id);
+                  }}
+                />
+                  
               </div>
             </div>
           </div>
@@ -55,3 +63,19 @@ export const PostFeedCard = ({ post }) => {
 
 //<div>{post.username}</div>
 //
+
+// {post.likes.likeCount === 0 ? (
+//   <button onClick={() => getLikePostHandler(post._id)}>
+//     like
+//   </button>
+// ) : (
+//   <button onClick={() => getDislikePostHandler(post._id)}>
+//     dislike
+//   </button>
+// )}
+
+// {post.likes.likeCount}
+
+//<button >
+// like
+// </button>

@@ -12,7 +12,9 @@ export const PostProvider = ({ children }) => {
 
   const getAllPosts = async () => {
     try {
-      const postResponse = await fetch("/api/posts");
+      const postResponse = await fetch("/api/posts",{
+        method: "GET",
+      });
       const { posts } = await postResponse.json();
 
       if (postResponse.status === 200) {
