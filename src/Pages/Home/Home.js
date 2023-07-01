@@ -7,7 +7,7 @@ import { PostFeedCard } from "../../Components/Post/PostFeedCard";
 import { useAuth } from "../../Context/AuthContext";
 
 const Home = () => {
-  const { posts } = usePost();
+  const { posts, newAddPost } = usePost();
   const { isAuth, toggleAuth } = useAuth();
 
   const renderAuthBtn = isAuth ? (
@@ -52,6 +52,10 @@ const Home = () => {
         </aside>
 
         <div>
+          <div>
+            <input />
+            <button onClick={() => newAddPost}>Post</button>
+          </div>
           <h2>Lastest Post</h2>
           {posts.map((post, i) => {
             return (

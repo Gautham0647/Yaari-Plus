@@ -27,7 +27,8 @@ export const PostFeedCard = ({ post }) => {
             <div className="post-footer">
               <div>
                 {post.likes.likeCount}
-                <AiFillLike onClick={() => getLikePostHandler(post._id)} />
+                <AiFillLike onClick={() => getLikePostHandler(post._id) 
+                 } />
               </div>
               <div>
                 <AiFillDislike

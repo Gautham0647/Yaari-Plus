@@ -10,6 +10,8 @@ export const postReducer = (state, action) => {
       return [...action.payload];
     case "DELETE-POST":
       return [...action.payload];
+      case"NEW-POST":
+      return [...action.payload]
 
     default:
       return [...state];

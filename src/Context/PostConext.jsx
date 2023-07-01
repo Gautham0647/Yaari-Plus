@@ -32,6 +32,30 @@ export const PostProvider = ({ children }) => {
     getAllPosts();
   }, []);
 
+
+
+  const newAddPost = async () =>{
+    try{
+      const postResponse = await fetch("/api/user/posts/" , {
+        headers: { authorization: token },
+        method: "POST",
+        body: JSON.stringify({ posts }),
+      })
+
+      const somthing = await postResponse.json();
+     console.log(somthing)
+      if(postResponse.status ===201){
+        postDispatch({
+          type:"NEW-POST",
+          payload: posts
+        })
+      }
+    }
+    catch{
+
+    }
+  }
+
   const getLikePostHandler = async (_id) => {
     try {
       const postResponse = await fetch(`/api/posts/like/${_id}`, {
@@ -39,18 +63,20 @@ export const PostProvider = ({ children }) => {
         method: "POST",
       });
 
-      const { posts } = await postResponse.json();
-
+      const somthing = await postResponse.json();
+     console.log(somthing , "some")
       if (postResponse.status === 201) {
         postDispatch({
           type: "LIKE-COUNT",
-          payload: posts,
+          // payload: posts,
         });
       }
     } catch (e) {
       console.log(e);
     }
   };
+
+
 
   const getDislikePostHandler = async (_id) => {
     try {
@@ -101,6 +127,7 @@ export const PostProvider = ({ children }) => {
         getLikePostHandler,
         getDislikePostHandler,
         deletePostHandler,
+        newAddPost
       }}
     >
       {children}

@@ -21,7 +21,7 @@ export const Login = (e) => {
     });
 
     const encodedToken = await respones.json();
-    //console.log(encodedToken)
+    console.log(encodedToken)
     if (encodedToken) {
       toggleAuth();
       localStorage.setItem("token", JSON.stringify(encodedToken));
@@ -42,10 +42,7 @@ export const Login = (e) => {
           </p>
 
           <input
-            wrapperClassName="form__item form__email form__input_box"
             htmlFor="username"
-            labelClassName="label"
-            labelText=" username"
             type="username"
             className="input_box"
             placeholder="username"
@@ -58,8 +55,6 @@ export const Login = (e) => {
           <input
             wrapperClassName="form__item form__password form__input_box"
             htmlFor="password"
-            labelClassName="label"
-            labelText="Password"
             className="input_box"
             placeholder="********"
             name="password"
