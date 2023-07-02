@@ -5,14 +5,14 @@ import TransLogo from "../../Components/Collection/Yaari-TransLoogo.png";
 import "./Login.css";
 
 export const Login = (e) => {
-  const { toggleAuth } = useAuth();
+  const { toggleAuth, setUser } = useAuth();
   const navigate = useNavigate();
 
   const loginHandler = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const body = {
-      username: "Gautham",
-      password: "Gautham5422",
+      username: e.target.username.value,
+      password: e.target.password.value,
     };
 
     const respones = await fetch("/api/auth/login", {
@@ -20,10 +20,11 @@ export const Login = (e) => {
       body: JSON.stringify(body),
     });
 
-    const encodedToken = await respones.json();
-    console.log(encodedToken)
+    const { encodedToken, foundUser } = await respones.json();
+
     if (encodedToken) {
       toggleAuth();
+      setUser(foundUser);
       localStorage.setItem("token", JSON.stringify(encodedToken));
       navigate("/");
     }
@@ -53,23 +54,22 @@ export const Login = (e) => {
             <label>Password</label>
           </p>
           <input
-            wrapperClassName="form__item form__password form__input_box"
             htmlFor="password"
             className="input_box"
             placeholder="********"
             name="password"
             defaultValue="Gautham5422"
           />
+          <div>
+            <div className="login-btn">
+              <button type="submit">Login</button>
+            </div>
+            <div className="login-btn">
+              <button type="submit">Guest Mode</button>
+            </div>
+            <p> Don't have an account ? Singup </p>
+          </div>
         </form>
-      </div>
-      <div>
-        <div className="login-btn">
-          <button onClick={loginHandler}>Login</button>
-        </div>
-        <div className="login-btn">
-          <button onClick={loginHandler}>Guest Mode</button>
-        </div>
-        <p> Don't have an account ? Singup </p>
       </div>
     </div>
   );

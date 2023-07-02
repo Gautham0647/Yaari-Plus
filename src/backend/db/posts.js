@@ -329,30 +329,3 @@ export const posts = [
     updatedAt: formatDate(),
   },
 ];
-
-// {
-//   _id: uuid(),
-//   content:
-//     "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis ",
-//   likes: {
-//     likeCount: 0,
-//     likedBy: [],
-//     dislikedBy: [],
-//   },
-//   username: "Gautham",
-//   createdAt: formatDate(),
-//   updatedAt: formatDate(),
-// },
-// {
-//   _id: uuid(),
-//   content:
-//     "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti .",
-//   likes: {
-//     likeCount: 0,
-//     likedBy: [],
-//     dislikedBy: [],
-//   },
-//   username: "shubhamsoni",
-//   createdAt: formatDate(),
-//   updatedAt: formatDate(),
-// },

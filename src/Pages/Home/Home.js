@@ -53,8 +53,8 @@ const Home = () => {
 
         <div>
           <div>
-            <input />
-            <button onClick={() => newAddPost}>Post</button>
+            <input  />
+            <button onClick={() => newAddPost()}>Post</button>
           </div>
           <h2>Lastest Post</h2>
           {posts.map((post, i) => {
