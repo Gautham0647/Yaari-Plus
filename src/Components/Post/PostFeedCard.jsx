@@ -1,17 +1,16 @@
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
-import {FaRegComment} from "react-icons/fa"
-import {BsBookmark} from "react-icons/bs"
-import {MdDelete} from "react-icons/md"
-import {FaShareAlt} from "react-icons/fa"
+import { FaRegComment } from "react-icons/fa";
+import { BsBookmark } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
+import { FaShareAlt } from "react-icons/fa";
 
 import { useBookmark } from "../../Context/BookmarkContext";
 import { usePost } from "../../Context/PostConext";
 import "./PostFeedCard.css";
 
 export const PostFeedCard = ({ post }) => {
-  const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
-    usePost();
+  const { getLikePostHandler, getDislikePostHandler } = usePost();
   const { addToBookmarkHandler } = useBookmark();
   return (
     <div>
@@ -27,8 +26,7 @@ export const PostFeedCard = ({ post }) => {
             <div className="post-footer">
               <div>
                 {post.likes.likeCount}
-                <AiFillLike onClick={() => getLikePostHandler(post._id) 
-                 } />
+                <AiFillLike onClick={() => getLikePostHandler(post._id)} />
               </div>
               <div>
                 <AiFillDislike
@@ -36,23 +34,16 @@ export const PostFeedCard = ({ post }) => {
                 />
               </div>
               <div>
-                <FaRegComment/>
+                <FaRegComment />
               </div>
               <div>
-                
-                 <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
-                
+                <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
               </div>
               <div>
-                <FaShareAlt/>
+                <FaShareAlt />
               </div>
               <div>
-                <MdDelete
-                  onClick={() => {
-                    deletePostHandler(post._id);
-                  }}
-                />
-                  
+                <MdDelete />
               </div>
             </div>
           </div>

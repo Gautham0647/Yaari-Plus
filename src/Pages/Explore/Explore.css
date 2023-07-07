@@ -1,0 +1,13 @@
+.explore-container{
+    display: grid;
+    height: max-content;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: space-between;
+}
+
+.exp-sidebar1{
+    display: flex;
+    flex-direction: column;
+
+}

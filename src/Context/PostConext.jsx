@@ -6,7 +6,7 @@ import { useAuth } from "./AuthContext";
 export const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
-  const { token, user, setUser } = useAuth();
+  const { token, user } = useAuth();
 
   const [posts, postDispatch] = useReducer(postReducer, initialState);
 
@@ -46,8 +46,8 @@ export const PostProvider = ({ children }) => {
         body: JSON.stringify({ postData }),
       });
 
-      const data = await postResponse.json();
-      console.log(data, "4");
+      const { posts } = await postResponse.json();
+
       if (postResponse.status === 201) {
         postDispatch({
           type: "NEW-POST",
@@ -57,7 +57,6 @@ export const PostProvider = ({ children }) => {
     } catch (err) {
       console.log("in con", err);
     }
-    console.log("red 5");
   };
 
   const getLikePostHandler = async (_id) => {
@@ -67,8 +66,8 @@ export const PostProvider = ({ children }) => {
         method: "POST",
       });
 
-      const somthing = await postResponse.json();
-      console.log(somthing, "some");
+      const { posts } = await postResponse.json();
+
       if (postResponse.status === 201) {
         postDispatch({
           type: "LIKE-COUNT",
@@ -100,26 +99,26 @@ export const PostProvider = ({ children }) => {
     }
   };
 
-  const deletePostHandler = async (_id) => {
-    console.log("id", _id);
-    try {
-      const postResponse = await fetch(`/api/posts/${_id}`, {
-        headers: { authorization: token },
-        method: "DELETE",
-      });
+  // const deletePostHandler = async (_id) => {
+  //   console.log("id", _id);
+  //   try {
+  //     const postResponse = await fetch(`/api/posts/${_id}`, {
+  //       headers: { authorization: token },
+  //       method: "DELETE",
+  //     });
 
-      const somthing = await postResponse.json();
+  //     const somthing = await postResponse.json();
 
-      if (postResponse.status === 201) {
-        postDispatch({
-          type: "DELETE-POST",
-          payload: posts,
-        });
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  //     if (postResponse.status === 201) {
+  //       postDispatch({
+  //         type: "DELETE-POST",
+  //         payload: posts,
+  //       });
+  //     }
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   return (
     <PostContext.Provider
@@ -128,7 +127,8 @@ export const PostProvider = ({ children }) => {
         postDispatch,
         getLikePostHandler,
         getDislikePostHandler,
-        deletePostHandler,
+        // deletePostHandler,
+
         newAddPost,
       }}
     >

@@ -1,0 +1,27 @@
+
+.input-field {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1.125rem;
+  }
+
+  .find-users-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: #e2d4d4;
+    z-index: 99;
+    top: 4rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 21.5rem;
+  }
+  .find-user {
+    display: flex;
+    gap: 1rem;
+    text-decoration: none;
+    color: rgb(172, 28, 28);
+  }

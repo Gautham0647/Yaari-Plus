@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useBookmark } from "../../Context/BookmarkContext";
 import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
+import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
 //import { usePost } from '../../Context/PostConext'
 
 const Bookmarks = () => {
@@ -10,17 +11,7 @@ const Bookmarks = () => {
 
   return (
     <div>
-      <div>
-        <Link to="/">
-          <p>Home</p>
-        </Link>
-        <Link to="/bookmarks">
-          <p>Bookmarks</p>
-        </Link>
-        <Link to="/explore">
-          <p>Explore</p>
-        </Link>
-      </div>
+      <Leftsidebar/>
       <div>
         <h1>
           BookMarks

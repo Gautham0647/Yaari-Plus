@@ -1,14 +1,8 @@
 .container{
-    display: grid;
+      display: grid;
 height: max-content;
 grid-gap: 1rem;
 grid-template-columns: 1fr 2fr 1fr;
-/* grid-template-areas: "header header header"
-"aside1 main aside2"
-"aside1 main aside2"
-"aside1 main aside2"; */
-
-justify-content: center;
 justify-content: space-between;
 }
 
@@ -55,3 +49,11 @@ justify-content: space-between;
     border: 1px solid black;
   
 }
+
+.suggestion-container{
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+    margin-right: 1rem;
+ }
+

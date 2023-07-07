@@ -1,0 +1,13 @@
+.suggestion-list{
+    list-style: none;
+    text-align: center;
+    
+}
+
+.profile-pic{
+    width: 50px;
+    border-radius: 50%;
+    height: 40px;
+    margin-top: 20px;
+    position: relative;  
+}
