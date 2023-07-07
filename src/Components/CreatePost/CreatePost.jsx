@@ -10,7 +10,7 @@ export const CreatePost = () => {
   const { newAddPost } = usePost();
   const [content, setContent] = useState();
   const { user } = useAuth();
-  
+
   return (
     <div className="create-post-container">
       <div className="profile-pic-container">
@@ -26,10 +26,10 @@ export const CreatePost = () => {
           placeholder="What's on your mind?"
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
-        <div className="post-input-action-container" >
-          <button 
-          className="post-btn"
-          onClick={(e) => newAddPost(content)}>Post</button>
+        <div className="post-input-action-container">
+          <button className="post-btn" onClick={(e) => newAddPost(content)}>
+            Post
+          </button>
         </div>
       </div>
     </div>

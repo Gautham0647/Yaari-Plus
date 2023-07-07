@@ -34,7 +34,7 @@ export const posts = [
     username: "adarshbalika",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
-    createdAt: "June 22, 2023",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
   },
 
