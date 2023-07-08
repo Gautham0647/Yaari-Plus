@@ -53,27 +53,31 @@ export const PostFeedCard = ({ post }) => {
               <div className="individual-icon-container">
                 {post.likes.likeCount}
                 <AiFillLike
-                  className="heart icon"
+                  className="like icon"
                   onClick={() => getLikePostHandler(post._id)}
                 />
               </div>
 
-              <div>
+              <div className="individual-icon-container">
                 <AiFillDislike
+                  className="icon"
                   onClick={() => getDislikePostHandler(post._id)}
                 />
               </div>
               <div>
-                <FaRegComment />
+                <FaRegComment className="icon" />
               </div>
-              <div>
-                <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
+              <div className="individual-icon-container">
+                <BsBookmark
+                  className="icon"
+                  onClick={() => addToBookmarkHandler(post._id)}
+                />
               </div>
-              <div>
-                <FaShareAlt />
+              <div className="individual-icon-container">
+                <FaShareAlt className="icon" />
               </div>
-              <div>
-                <MdDelete />
+              <div className="individual-icon-container">
+                <MdDelete className="icon" />
               </div>
             </div>
           </div>

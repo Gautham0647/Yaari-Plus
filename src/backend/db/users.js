@@ -8,6 +8,7 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: uuid(),
+    fullname: "Gautham Bairi",
     username: "Gautham",
     password: "Gautham5422",
     profilePic:
@@ -19,6 +20,8 @@ export const users = [
     createdAt: formatDate(),
     followers: [],
     following: [],
+    firstName: "Gautham",
+    lastName: "Bairi",
   },
   {
     _id: uuid(),
@@ -59,9 +62,9 @@ export const users = [
   },
   {
     _id: uuid(),
-    fullname: "Mahima Gupta",
-    username: "mahimagupta",
-    password: "mahimagupta123",
+    fullname: "Shweta Patel",
+    username: "shwetapatel",
+    password: "shwetapatel123",
     bio: "Aspiring Web developer",
     profilePic:
       "https://w0.peakpx.com/wallpaper/417/640/HD-wallpaper-cute-adorable-girl-baby-is-looking-up-wearing-purple-dress-cute.jpg",
@@ -118,13 +121,3 @@ export const users = [
     following: [],
   },
 ];
-
-// {
-//   _id: uuid(),
-//   firstName: "Gautham",
-//   lastName: "Bairi",
-//   username: "Gautham",
-//   password: "Gautham5422",
-//   createdAt: formatDate(),
-//   updatedAt: formatDate(),
-// },

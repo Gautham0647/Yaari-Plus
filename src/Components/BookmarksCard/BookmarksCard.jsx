@@ -3,10 +3,11 @@ import { useBookmark } from "../../Context/BookmarkContext";
 import "./BookmarksCard.css";
 
 export const BookmarksCard = ({ post }) => {
+  console.log(post,"bookmark")
   const { removeFromBookmarkHandler } = useBookmark();
   return (
     <div>
-      <div className="post-wrapper">
+      <div className="bookmark-wrapper">
         <div className="post-item-container">
           <div>for img</div>
           <div className="post-text">

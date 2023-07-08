@@ -10,12 +10,12 @@ const Bookmarks = () => {
   const isBookmark = bookmarks.length === 0;
 
   return (
-    <div>
-      <Leftsidebar/>
+    <div className="explore-container">
+      <Leftsidebar />
       <div>
         <h1>
           BookMarks
-          <span>{bookmarks.length ? `(${bookmarks.length})` : null}</span>
+          <span>{bookmarks.length ? `(${bookmarks.length})` : null }</span>
         </h1>
         {isBookmark ? (
           <div>
