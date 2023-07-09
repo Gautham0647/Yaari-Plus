@@ -10,8 +10,8 @@ export const SearchUser = () => {
   const findUsersList =
     input && suggestedUsers.filter((user) => user.username.includes(input));
 
-  console.log(findUsersList, "find");
-  console.log(suggestedUsers, "suges");
+  //console.log(findUsersList, "find");
+  //console.log(suggestedUsers, "suges");
   return (
     <div>
       <input

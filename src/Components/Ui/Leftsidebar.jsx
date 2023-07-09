@@ -4,6 +4,11 @@ import { Link} from "react-router-dom";
 
 
 export const Leftsidebar = ()=>{
+  //const foundUser = localStorage.getItem("loggedInYaariUser");
+  const foundUser = JSON.parse(localStorage.getItem("loggedInYaariUser"));
+  const loggedInUser = foundUser.username
+  
+  
     return(
         <div>
         <div className="link">
@@ -22,7 +27,7 @@ export const Leftsidebar = ()=>{
               </Link>
             </div>
             <div className="link">
-              <Link to="/profile">
+              <Link to={`/profile/${loggedInUser}`}>
                 <p>Profile</p>
               </Link>
             </div>

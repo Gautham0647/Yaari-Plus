@@ -15,7 +15,7 @@ export const users = [
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     bio: "Social Media Influencer",
     bookmarks: [],
-    website: "",
+    website: "https://gauthambairiprotfolio.netlify.app/",
     updatedAt: formatDate(),
     createdAt: formatDate(),
     followers: [],

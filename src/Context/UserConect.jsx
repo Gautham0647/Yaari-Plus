@@ -32,7 +32,7 @@ export const UserProvider = ({ children }) => {
 
   const handleFollow = async (followId) => {
     try {
-      const userReponse = await fetch(`/api/users/follow/${followId}`, {
+      const userReponse = await fetch(`/api/users/follow/${followId}` , {
         headers: { authorization: token },
         method: "POST",
       });
@@ -45,25 +45,59 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  //   const handleUnfollow = async (followId) => {
-  //     try {
-  //       const userReponse = await fetch(`/api/users/unfollow/${followId}`, {
-  //         headers: { authorization: token },
-  //         method: "POST",
-  //       });
+    const handleUnfollow = async (followId) => {
+      try {
+        const userReponse = await fetch(`/api/users/unfollow/${followId}`, {
+          headers: { authorization: token },
+          method: "POST",
+        });
 
-  //       const { followUser } = await userReponse.json();
+        const { user } = await userReponse.json();
 
-  //       if (userReponse === 200) {
-  //         userDispatch({
-  //           type: "UNFOLLOW-USER",
-  //           payload: followUser,
-  //         });
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
+        if (userReponse.status === 200) {
+          setUser(user);
+          userDispatch({
+            type: "UNFOLLOW-USER",
+            payload: user,
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+   
+
+    const editUserInfo = async (data) => {
+      const userData = {
+           bio: data.bio,
+            profilePic: data.profilePic,
+           website: data.website,
+          };
+      try {
+        const userReponse = await fetch(`/api/users/edit` , {
+          headers: { authorization: token },
+          method: "POST",
+          body: JSON.stringify({ userData })
+        });
+        const {user} = await userReponse.json();
+console.log(user,"love")
+        if (userReponse.status === 201) {
+          setUser(user);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
+
+   
+
+
+
+
+
+
 
 
   const suggestedUsers = users.filter(({ username, _id }) => username !== user?.username && !user?.following.some((followedUser) => followedUser._id === _id)
@@ -73,7 +107,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ users, userDispatch, handleFollow, suggestedUsers }}
+      value={{ users, userDispatch, handleFollow,handleUnfollow, suggestedUsers,editUserInfo }}
     >
       {children}
     </UserContext.Provider>

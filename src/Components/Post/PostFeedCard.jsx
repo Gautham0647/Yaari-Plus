@@ -14,10 +14,12 @@ import "./PostFeedCard.css";
 import { Modal } from "../Ui/Modal/Modal";
 import { useState } from "react";
 import { CreatePost } from "../CreatePost/CreatePost";
+import { useNavigate } from "react-router-dom";
 
 export const PostFeedCard = ({ post }) => {
   const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
     usePost();
+    const navigate = useNavigate();
   const { addToBookmarkHandler } = useBookmark();
   const [show, setShow] = useState(false);
   const editPostHandler = () => {
@@ -25,7 +27,13 @@ export const PostFeedCard = ({ post }) => {
   };
   const onClose = () => setShow((s) => !s);
   const computeTime = dateFormat(post.createdAt);
-  console.log(post, "Current-post");
+
+
+  const handleUserPosts = (username) => {
+    //  getUserPosts(username);
+    navigate(`/profile/${username}`);
+  };
+  //console.log(post, "Current-post");
   return (
     <div>
       <div className="post-wrapper">
@@ -38,7 +46,8 @@ export const PostFeedCard = ({ post }) => {
             <div className="user-details-container">
               <div className="user-details">
                 <div>
-                  <p>{`${post.firstName} ${post.lastName}`}</p>
+                  <p onClick={() => handleUserPosts(post.username)}>{`${post.firstName} ${post.lastName}`}</p>
+                 
                   <p className="username">{`@${post.username}`}</p>
                 </div>
                 <p className="date">{computeTime}</p>
