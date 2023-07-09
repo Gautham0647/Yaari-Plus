@@ -32,7 +32,7 @@ export const PostProvider = ({ children }) => {
     getAllPosts();
   }, []);
 
-  const newAddPost = async (postText) => {
+  const newAddPost = async (postText, setContent) => {
     const postData = {
       content: postText,
       profilePic: user.profilePic,
@@ -53,6 +53,7 @@ export const PostProvider = ({ children }) => {
           type: "NEW-POST",
           payload: posts,
         });
+        setContent("");
       }
     } catch (err) {
       console.log("in con", err);
@@ -99,26 +100,48 @@ export const PostProvider = ({ children }) => {
     }
   };
 
-  // const deletePostHandler = async (_id) => {
-  //   console.log("id", _id);
-  //   try {
-  //     const postResponse = await fetch(`/api/posts/${_id}`, {
-  //       headers: { authorization: token },
-  //       method: "DELETE",
-  //     });
+  const deletePostHandler = async (_id) => {
+    console.log("id", _id);
+    try {
+      const postResponse = await fetch(`/api/posts/${_id}`, {
+        headers: { authorization: token },
+        method: "DELETE",
+      });
 
-  //     const somthing = await postResponse.json();
+      const { posts } = await postResponse.json();
+      if (postResponse.status === 201) {
+        postDispatch({
+          type: "DELETE-POST",
+          payload: posts,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  //     if (postResponse.status === 201) {
-  //       postDispatch({
-  //         type: "DELETE-POST",
-  //         payload: posts,
-  //       });
-  //     }
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const editPost = async (post, content, onClose) => {
+    console.log("id", post);
+    try {
+      const postResponse = await fetch(`/api/posts/edit/${post._id}`, {
+        headers: { authorization: token },
+        method: "POST",
+        body: JSON.stringify({ postData: { content } }),
+      });
+
+      const { posts } = await postResponse.json();
+      console.log(posts.find((p) => p._id === post._id));
+      if (postResponse.status === 201) {
+        postDispatch({
+          type: "EDIT-POST",
+          payload: posts,
+        });
+        onClose();
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <PostContext.Provider
@@ -127,9 +150,9 @@ export const PostProvider = ({ children }) => {
         postDispatch,
         getLikePostHandler,
         getDislikePostHandler,
-        // deletePostHandler,
-
+        deletePostHandler,
         newAddPost,
+        editPost,
       }}
     >
       {children}
@@ -138,5 +161,3 @@ export const PostProvider = ({ children }) => {
 };
 
 export const usePost = () => useContext(PostContext);
-
-//

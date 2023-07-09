@@ -1,6 +1,5 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-
 /**
  * Posts can be added here.
  * You can add default posts of your wish with different attributes
@@ -31,7 +30,7 @@ export const posts = [
     ],
     firstName: "Gautham",
     lastName: "Bairi",
-    username: "gauthambairi",
+    username: "Gautham",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     createdAt: formatDate(),
@@ -113,7 +112,7 @@ export const posts = [
     ],
     firstName: "Gautham",
     lastName: "Bairi",
-    username: "gauthambairi",
+    username: "Gautham",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     // createdAt: "2023-06-13T09:00:10+05:30",
@@ -220,7 +219,7 @@ export const posts = [
     ],
     firstName: "Gautham",
     lastName: "Bairi",
-    username: "gauthambairi",
+    username: "Gautham",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
 
@@ -258,7 +257,7 @@ export const posts = [
     comments: [],
     firstName: "Gautham",
     lastName: "Bairi",
-    username: "gauthambairi",
+    username: "Gautham",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     // createdAt: "2023-06-10T07:15:10+05:30",

@@ -8,6 +8,7 @@ import { Login } from "./Pages/Login/Login";
 import { useAuth } from "./Context/AuthContext";
 import { RequiredAuth } from "./Components/RequiredAuth/RequiredAuth";
 import { Navbar } from "./Components/Navbar/Navbar";
+import { Profile } from "./Pages/Profile/Profile";
 
 function App() {
   const { isAuth } = useAuth();
@@ -38,6 +39,14 @@ function App() {
           element={
             <RequiredAuth>
               <Bookmarks />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequiredAuth>
+              <Profile/>
             </RequiredAuth>
           }
         />

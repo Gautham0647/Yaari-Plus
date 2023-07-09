@@ -13,6 +13,14 @@ import { SearchUser } from "../../Components/SearchUser/SearchUser";
 
 const Home = () => {
   const { posts } = usePost();
+  const { user } = useAuth();
+  const filteredPost = posts.filter(
+    (post) =>
+      post.username === user?.username ||
+      user?.following.some(
+        (followedUser) => followedUser.username === post.username
+      )
+  );
   const { isAuth, toggleAuth } = useAuth();
   //const [content, setContent] = useState();
   const { suggestedUsers } = useUser();
@@ -44,12 +52,12 @@ const Home = () => {
           </div>
         </aside>
 
-        <div>
+        <div className="scroll">
           <div>
             <CreatePost />
           </div>
           <h2>Lastest Post</h2>
-          {posts.map((post, i) => {
+          {filteredPost.map((post, i) => {
             return (
               <div key={i}>
                 <PostFeedCard post={post} />
@@ -59,9 +67,9 @@ const Home = () => {
         </div>
 
         <div className="suggestion-container">
-        <div>
-         <SearchUser/>
-        </div>
+          <div>
+            <SearchUser />
+          </div>
           <h2>SUGGESTED USERS</h2>
           {suggestedUsers.map((user) => (
             <div key={user._id}>

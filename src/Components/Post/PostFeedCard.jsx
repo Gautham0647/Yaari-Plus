@@ -11,10 +11,19 @@ import { useBookmark } from "../../Context/BookmarkContext";
 import { usePost } from "../../Context/PostConext";
 import { dateFormat } from "../../Utils/Date";
 import "./PostFeedCard.css";
+import { Modal } from "../Ui/Modal/Modal";
+import { useState } from "react";
+import { CreatePost } from "../CreatePost/CreatePost";
 
 export const PostFeedCard = ({ post }) => {
-  const { getLikePostHandler, getDislikePostHandler } = usePost();
+  const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
+    usePost();
   const { addToBookmarkHandler } = useBookmark();
+  const [show, setShow] = useState(false);
+  const editPostHandler = () => {
+    setShow(true);
+  };
+  const onClose = () => setShow((s) => !s);
   const computeTime = dateFormat(post.createdAt);
   console.log(post, "Current-post");
   return (
@@ -74,34 +83,22 @@ export const PostFeedCard = ({ post }) => {
                 />
               </div>
               <div className="individual-icon-container">
-                <FaShareAlt className="icon" />
+                <FaShareAlt className="icon" onClick={editPostHandler} />
               </div>
               <div className="individual-icon-container">
-                <MdDelete className="icon" />
+                <MdDelete
+                  className="icon"
+                  onClick={() => deletePostHandler(post._id)}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Modal show={show} onClose={onClose}>
+        This is Modal
+        <CreatePost edit={true} post={post} onClose={onClose} />
+      </Modal>
     </div>
   );
 };
-
-//<div>{post.username}</div>
-//
-
-// {post.likes.likeCount === 0 ? (
-//   <button onClick={() => getLikePostHandler(post._id)}>
-//     like
-//   </button>
-// ) : (
-//   <button onClick={() => getDislikePostHandler(post._id)}>
-//     dislike
-//   </button>
-// )}
-
-// {post.likes.likeCount}
-
-//<button >
-// like
-// </button>

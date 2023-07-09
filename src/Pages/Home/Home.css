@@ -1,5 +1,5 @@
 .container{
-      display: grid;
+    display: grid;
 height: max-content;
 grid-gap: 1rem;
 grid-template-columns: 1fr 2fr 1fr;
@@ -8,52 +8,56 @@ justify-content: space-between;
 
 
 .sidebar1{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .link-container{
-    margin-top: 40px;
-    margin-left: 40px;
-    width: 250px;
-    height: 200px;
-    
-    
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 250px;
+  height: 200px;
+  
+  
 }
 
 
 
 .link a{
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    text-decoration: none;
-    color: #302aaf;
-    font-size: 2rem;
-    
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  text-decoration: none;
+  color: #302aaf;
+  font-size: 2rem;
+  
 }
 
 .logout-btn{
-    margin-top: 350px;
-    margin-left: -70px;
-    padding: 10px;
-   
+  margin-top: 350px;
+  margin-left: -70px;
+  padding: 10px;
+ 
 
 }
 
 .logout-btn button{
-    color: #302aaf;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-  
+  color: #302aaf;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+
 }
 
 .suggestion-container{
-    border: none;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    text-align: center;
-    margin-right: 1rem;
- }
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-right: 1rem;
+}
 
+.scroll {
+  height: 100vh;
+  overflow: scroll;
+}

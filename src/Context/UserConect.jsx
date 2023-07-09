@@ -6,7 +6,6 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { token, user, setUser } = useAuth();
-
   const [users, userDispatch] = useReducer(userReducer, initialState);
 
   const getAllUser = async () => {
@@ -37,17 +36,9 @@ export const UserProvider = ({ children }) => {
         headers: { authorization: token },
         method: "POST",
       });
-
-      const { followUser } = await userReponse.json();
-      console.log(followUser, "handler check");
-
-      if (userReponse === 200) {
-        setUser((user) => ({ ...user, following: followUser }));
-
-        userDispatch({
-          type: "FOLLOW-USER",
-          payload: followUser,
-        });
+      const { user } = await userReponse.json();
+      if (userReponse.status === 200) {
+        setUser(user);
       }
     } catch (err) {
       console.log(err);
@@ -74,16 +65,9 @@ export const UserProvider = ({ children }) => {
   //     }
   //   };
 
-  //const myFollow = user.followUser;
 
-  const suggestedUsers = users.filter(
-    ({ username }) => username !== user.username
+  const suggestedUsers = users.filter(({ username, _id }) => username !== user?.username && !user?.following.some((followedUser) => followedUser._id === _id)
   );
-
-  // .filter(
-  //     (user) =>
-  //       !myFollowing?.some((followedUser) => followedUser._id === user._id)
-  //   );
 
  
 

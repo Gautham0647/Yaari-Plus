@@ -21,6 +21,11 @@ export const Leftsidebar = ()=>{
                 <p>Explore</p>
               </Link>
             </div>
+            <div className="link">
+              <Link to="/profile">
+                <p>Profile</p>
+              </Link>
+            </div>
             </div>
     )
 }

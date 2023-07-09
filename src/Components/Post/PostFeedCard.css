@@ -38,6 +38,9 @@ padding: 0.5rem;
     position: relative;
   }
   
+  .post-details{
+    width:100%
+  }
   .post-details .post-content-container {
     margin-top: 1rem;
     display: flex;

@@ -26,6 +26,7 @@ export const Login = (e) => {
       toggleAuth();
       setUser(foundUser);
       localStorage.setItem("token", JSON.stringify(encodedToken));
+      localStorage.setItem("loggedInYaariUser", JSON.stringify(foundUser))
       navigate("/");
     }
   };
