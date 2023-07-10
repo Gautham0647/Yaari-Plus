@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom"
+
 import { useAuth } from "../../Context/AuthContext";
 import TransLogo from "../../Components/Collection/Yaari-TransLoogo.png";
 
@@ -68,7 +70,7 @@ export const Login = (e) => {
             <div className="login-btn">
               <button type="submit">Guest Mode</button>
             </div>
-            <p> Don't have an account ? Singup </p>
+            <p> Don't have an account ?<Link to="/signup">Signup</Link>  </p>
           </div>
         </form>
       </div>

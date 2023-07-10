@@ -15,12 +15,15 @@ import { Modal } from "../Ui/Modal/Modal";
 import { useState } from "react";
 import { CreatePost } from "../CreatePost/CreatePost";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 
 export const PostFeedCard = ({ post }) => {
   const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
     usePost();
-    const navigate = useNavigate();
-  const { addToBookmarkHandler } = useBookmark();
+
+    const {user} = useAuth();
+  const navigate = useNavigate();
+  const { addToBookmarkHandler ,removeFromBookmarkHandler} = useBookmark();
   const [show, setShow] = useState(false);
   const editPostHandler = () => {
     setShow(true);
@@ -28,12 +31,15 @@ export const PostFeedCard = ({ post }) => {
   const onClose = () => setShow((s) => !s);
   const computeTime = dateFormat(post.createdAt);
 
-
   const handleUserPosts = (username) => {
     //  getUserPosts(username);
     navigate(`/profile/${username}`);
   };
   //console.log(post, "Current-post");
+
+  const isBookmarked = (postId) =>
+    user?.bookmarks?.find((bookmark) => bookmark._id === postId);
+
   return (
     <div>
       <div className="post-wrapper">
@@ -46,8 +52,10 @@ export const PostFeedCard = ({ post }) => {
             <div className="user-details-container">
               <div className="user-details">
                 <div>
-                  <p onClick={() => handleUserPosts(post.username)}>{`${post.firstName} ${post.lastName}`}</p>
-                 
+                  <p
+                    onClick={() => handleUserPosts(post.username)}
+                  >{`${post.firstName} ${post.lastName}`}</p>
+
                   <p className="username">{`@${post.username}`}</p>
                 </div>
                 <p className="date">{computeTime}</p>
@@ -86,10 +94,14 @@ export const PostFeedCard = ({ post }) => {
                 <FaRegComment className="icon" />
               </div>
               <div className="individual-icon-container">
-                <BsBookmark
-                  className="icon"
-                  onClick={() => addToBookmarkHandler(post._id)}
-                />
+                {isBookmarked(post._id) ? (
+                  <BsBookmark
+                    style={{ color: "red" }}
+                    onClick={() => removeFromBookmarkHandler(post._id)}
+                  ></BsBookmark>
+                ) : (
+                  <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
+                )}
               </div>
               <div className="individual-icon-container">
                 <FaShareAlt className="icon" onClick={editPostHandler} />
@@ -105,7 +117,6 @@ export const PostFeedCard = ({ post }) => {
         </div>
       </div>
       <Modal show={show} onClose={onClose}>
-        This is Modal
         <CreatePost edit={true} post={post} onClose={onClose} />
       </Modal>
     </div>

@@ -3,10 +3,16 @@ import React from "react";
 import { useBookmark } from "../../Context/BookmarkContext";
 import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
-//import { usePost } from '../../Context/PostConext'
+
 
 const Bookmarks = () => {
-  const { bookmarks } = useBookmark();
+   const { bookmarks } = useBookmark();
+  
+
+
+
+  
+
   const isBookmark = bookmarks.length === 0;
 
   return (

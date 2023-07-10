@@ -19,7 +19,7 @@ export const BookmarkProvider = ({ children }) => {
         headers: { authorization: token },
         method: "POST",
       });
-      const { bookmarks } = await response.json();
+      const {bookmarks} = await response.json();
 
       if (response.status === 200) {
         bookmarkDispatch({

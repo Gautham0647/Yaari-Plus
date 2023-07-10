@@ -33,7 +33,7 @@ export const posts = [
     username: "Gautham",
     profilePic:
       "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
-    createdAt: formatDate(),
+    createdAt: "April 22, 2023",
     updatedAt: formatDate(),
   },
 
@@ -53,7 +53,7 @@ export const posts = [
     lastName: "Soni",
     username: "shubhamsoni",
     profilePic: "https://wallpapercave.com/wp/wp2058252.jpg",
-    // createdAt: "2023-02-25T10:30:33+05:30",
+    
     createdAt: "February 25, 2023",
     updatedAt: formatDate(),
   },

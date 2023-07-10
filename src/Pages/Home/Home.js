@@ -12,7 +12,7 @@ import { CreatePost } from "../../Components/CreatePost/CreatePost";
 import { SearchUser } from "../../Components/SearchUser/SearchUser";
 
 const Home = () => {
-  const { posts } = usePost();
+  const { posts,postDispatch } = usePost();
   const { user } = useAuth();
   const filteredPost = posts.filter(
     (post) =>
@@ -40,6 +40,20 @@ const Home = () => {
     </NavLink>
   );
 
+  const handleSortedPost = () => {
+    const sortedPosts = [...posts].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+    postDispatch({type:"SORT-DATE",payload:sortedPosts })
+  };
+
+  const sortLikedPosts = () => {
+    const sortedPosts = [...posts].sort(
+      (a, b) => b.likes.likeCount - a.likes.likeCount
+    );
+    postDispatch({type:"SORT-LIKE",payload:sortedPosts })
+  };
+
   return (
     <div>
       <div className="container">
@@ -56,6 +70,14 @@ const Home = () => {
           <div>
             <CreatePost />
           </div>
+          <div> 
+          <button id="sort-btn" onClick={handleSortedPost}>
+              Latest Post
+            </button>
+          
+          <button id="trending-btn" onClick={sortLikedPosts}>
+          Trending
+        </button></div>
           <h2>Lastest Post</h2>
           {filteredPost.map((post, i) => {
             return (

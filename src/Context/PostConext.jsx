@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 import { initialState, postReducer } from "../Reducer/PostReducer";
 import { useAuth } from "./AuthContext";
@@ -7,6 +7,7 @@ export const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
   const { token, user } = useAuth();
+  
 
   const [posts, postDispatch] = useReducer(postReducer, initialState);
 

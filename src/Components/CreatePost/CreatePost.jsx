@@ -31,7 +31,9 @@ export const CreatePost = ({ edit, post, onClose }) => {
           <button
             className="post-btn"
             onClick={(e) =>
-              edit ? editPost(post, content, onClose) : newAddPost(content, setContent)
+              edit
+                ? editPost(post, content, onClose)
+                : newAddPost(content, setContent)
             }
           >
             {edit ? "Save" : "Post"}

@@ -14,6 +14,11 @@ export const postReducer = (state, action) => {
       return [...action.payload];
     case "EDIT-POST":
       return [...action.payload];
+      case "SORT-LIKE":
+      return [...action.payload];
+      case "SORT-DATE":
+        return [...action.payload];
+
     default:
       return [...state];
   }
