@@ -4,14 +4,8 @@ import { useBookmark } from "../../Context/BookmarkContext";
 import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
 
-
 const Bookmarks = () => {
-   const { bookmarks } = useBookmark();
-  
-
-
-
-  
+  const { bookmarks } = useBookmark();
 
   const isBookmark = bookmarks.length === 0;
 
@@ -21,7 +15,7 @@ const Bookmarks = () => {
       <div>
         <h1>
           BookMarks
-          <span>{bookmarks.length ? `(${bookmarks.length})` : null }</span>
+          <span>{bookmarks.length ? `(${bookmarks.length})` : null}</span>
         </h1>
         {isBookmark ? (
           <div>

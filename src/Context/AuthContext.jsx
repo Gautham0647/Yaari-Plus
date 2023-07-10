@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 
 
-const token = localStorage.getItem("token");
 
-const initialState = { encodedToken: token};
+
+const initialState = { encodedToken: localStorage.getItem("token")};
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(authReducer,initialState);
 
- 
+  const token = localStorage.getItem("token");
   const foundUser = localStorage.getItem("loggedInYaariUser");
   
   const [isAuth, setIsAuth] = useState(token ? true : false);
