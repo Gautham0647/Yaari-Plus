@@ -1,9 +1,11 @@
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
-import { FaRegComment } from "react-icons/fa";
-import { BsBookmark } from "react-icons/bs";
+import { BiCommentDetail } from "react-icons/bi";
+import { FiBookmark } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { FaShareAlt } from "react-icons/fa";
+import { AiOutlineEdit } from "react-icons/ai";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -21,9 +23,9 @@ export const PostFeedCard = ({ post }) => {
   const { getLikePostHandler, getDislikePostHandler, deletePostHandler } =
     usePost();
 
-    const {user} = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const { addToBookmarkHandler ,removeFromBookmarkHandler} = useBookmark();
+  const { addToBookmarkHandler, removeFromBookmarkHandler } = useBookmark();
   const [show, setShow] = useState(false);
   const editPostHandler = () => {
     setShow(true);
@@ -90,21 +92,25 @@ export const PostFeedCard = ({ post }) => {
                   onClick={() => getDislikePostHandler(post._id)}
                 />
               </div>
-              <div>
-                <FaRegComment className="icon" />
+              <div className="individual-icon-container">
+                <BiCommentDetail className="icon" />
               </div>
               <div className="individual-icon-container">
                 {isBookmarked(post._id) ? (
-                  <BsBookmark
+                  <FiBookmark
                     style={{ color: "red" }}
+                    className="icon"
                     onClick={() => removeFromBookmarkHandler(post._id)}
-                  ></BsBookmark>
+                  ></FiBookmark>
                 ) : (
-                  <BsBookmark onClick={() => addToBookmarkHandler(post._id)} />
+                  <FiBookmark
+                    className="icon"
+                    onClick={() => addToBookmarkHandler(post._id)}
+                  />
                 )}
               </div>
               <div className="individual-icon-container">
-                <FaShareAlt className="icon" onClick={editPostHandler} />
+                <AiOutlineEdit className="icon" onClick={editPostHandler} />
               </div>
               <div className="individual-icon-container">
                 <MdDelete

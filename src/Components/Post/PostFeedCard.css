@@ -73,6 +73,7 @@ padding: 0.5rem;
 
   
   .icon-container .icon,
+  .icon svg
   .user-details-container .icon {
     cursor: pointer;
     padding: 0.5rem;

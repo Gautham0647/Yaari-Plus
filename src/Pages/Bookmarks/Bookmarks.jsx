@@ -1,7 +1,8 @@
 import React from "react";
 //import { Link } from "react-router-dom";
 import { useBookmark } from "../../Context/BookmarkContext";
-import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
+//import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
+import { PostFeedCard } from "../../Components/Post/PostFeedCard";
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
 
 const Bookmarks = () => {
@@ -26,7 +27,7 @@ const Bookmarks = () => {
             <div>
               {bookmarks.map((post, i) => (
                 <div key={i}>
-                  <BookmarksCard post={post} />
+                  <PostFeedCard post={post} />
                 </div>
               ))}
             </div>
