@@ -6,10 +6,11 @@ import { usePost } from "../../Context/PostConext";
 import { PostFeedCard } from "../../Components/Post/PostFeedCard";
 import { useAuth } from "../../Context/AuthContext";
 import { useUser } from "../../Context/UserConect";
-import { UserCard } from "../../Components/UsersCard/UserCard";
+//import { UserCard } from "../../Components/UsersCard/UserCard";
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
 import { CreatePost } from "../../Components/CreatePost/CreatePost";
-import { SearchUser } from "../../Components/SearchUser/SearchUser";
+//import { SearchUser } from "../../Components/SearchUser/SearchUser";
+import { Rightsidebar } from "../../Components/Ui/Rightsidebar/Rightsidebar";
 
 const Home = () => {
   const { posts,postDispatch } = usePost();
@@ -89,15 +90,10 @@ const Home = () => {
         </div>
 
         <div className="suggestion-container">
-          <div>
-            <SearchUser />
-          </div>
-          <h2>SUGGESTED USERS</h2>
-          {suggestedUsers.map((user) => (
-            <div key={user._id}>
-              <UserCard user={user} />
-            </div>
-          ))}
+          
+
+          <Rightsidebar suggestedUsers={suggestedUsers} />
+
         </div>
       </div>
     </div>

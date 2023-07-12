@@ -7,6 +7,7 @@ import { useUser } from "../../Context/UserConect";
 import ProfileDetailsCard from "./ProfileDetailsCard";
 import { usePost } from "../../Context/PostConext";
 import { PostFeedCard } from "../../Components/Post/PostFeedCard";
+import { Rightsidebar } from "../../Components/Ui/Rightsidebar/Rightsidebar";
 
 export const Profile = () => {
   const { username } = useParams();
@@ -22,7 +23,6 @@ export const Profile = () => {
     ({ username }) => username === user?.username
   );
 
-  // const loggedInUserPosts = posts.filter((post) => post.username === username);
   const filteredPost = posts.filter(
     (post) =>
       post.username === user?.username ||
@@ -31,8 +31,6 @@ export const Profile = () => {
       )
   );
 
-  //console.log(users, "AAAA");
-  //console.log(user, "user");
   return (
     <div className="profile-container">
       <div className="profile-sidebar1">
@@ -41,14 +39,17 @@ export const Profile = () => {
       <div>
         {username === user?.username ? (
           <div className="profile">
-            <img className="profile-pic" src={user?.profilePic} alt="bio-pic" />
+            <img
+              className="profile-picture"
+              src={user?.profilePic}
+              alt="bio-pic"
+            />
             <span>{user?.fullname}</span>
             <p className="user-bio">{user?.bio}</p>
             <a href={user?.website} target="_blank">
               {user?.website}
             </a>
             <p>
-              {/* <span>Post:{loggedInUserPosts.length}</span> */}
               <span>Followers:{user?.followers.length}</span>
               <span>Following:{user?.following.length}</span>
             </p>
@@ -68,7 +69,11 @@ export const Profile = () => {
           </div>
         ) : (
           <div className="profile">
-            <img className="profile-pic" src={userProfile?.profilePic} />
+            <img
+              className="profile-pic"
+              src={userProfile?.profilePic}
+              alt="profile-pic"
+            />
             <span>{userProfile?.fullname}</span>
             <p className="user-bio">{user?.bio}</p>
             <p>
@@ -102,6 +107,9 @@ export const Profile = () => {
             );
           })}
         </div>
+      </div>
+      <div className="suggestion-container">
+        <Rightsidebar suggestedUsers={suggestedUsers} />
       </div>
     </div>
   );

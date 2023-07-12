@@ -10,8 +10,6 @@ export const SearchUser = () => {
   const findUsersList =
     input && suggestedUsers.filter((user) => user.username.includes(input));
 
-  //console.log(findUsersList, "find");
-  //console.log(suggestedUsers, "suges");
   return (
     <div>
       <input
@@ -33,19 +31,3 @@ export const SearchUser = () => {
     </div>
   );
 };
-
-// <input
-// type="text"
-// placeholder="Search People"
-// className="input-field"
-// value={input}
-// onChange={(e) => setInput(e.target.value)}
-// />
-// {input && (
-// <div className="find-users-container">
-//   {findUsersList.length === 0 && <p>No users found</p>}
-//   {findUsersList.map((user) => (
-//     <UserList key={user._id} user={user} />
-//   ))}
-// </div>
-// )}

@@ -4,10 +4,12 @@ import { useBookmark } from "../../Context/BookmarkContext";
 //import { BookmarksCard } from "../../Components/BookmarksCard/BookmarksCard";
 import { PostFeedCard } from "../../Components/Post/PostFeedCard";
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
+import { useUser } from "../../Context/UserConect";
+import { Rightsidebar } from "../../Components/Ui/Rightsidebar/Rightsidebar";
 
 const Bookmarks = () => {
   const { bookmarks } = useBookmark();
-
+  const { suggestedUsers } = useUser();
   const isBookmark = bookmarks.length === 0;
 
   return (
@@ -33,6 +35,9 @@ const Bookmarks = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="suggestion-container">
+        <Rightsidebar suggestedUsers={suggestedUsers} />
       </div>
     </div>
   );

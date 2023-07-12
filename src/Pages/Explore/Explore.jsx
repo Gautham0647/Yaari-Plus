@@ -1,12 +1,16 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+
 import { Leftsidebar } from "../../Components/Ui/Leftsidebar";
 import { usePost } from "../../Context/PostConext";
 import "./Explore.css";
 import { PostFeedCard } from "../../Components/Post/PostFeedCard";
 
+import { useUser } from "../../Context/UserConect";
+import { Rightsidebar } from "../../Components/Ui/Rightsidebar/Rightsidebar";
+
 const Explore = () => {
   const { posts } = usePost();
+  const { suggestedUsers } = useUser();
   return (
     <div>
       <div className="explore-container">
@@ -14,6 +18,7 @@ const Explore = () => {
           <Leftsidebar />
         </div>
         <div>
+          helllo
           <h2>Explore</h2>
           {posts.map((post, i) => {
             return (
@@ -22,6 +27,10 @@ const Explore = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="suggestion-container">
+          <Rightsidebar suggestedUsers={suggestedUsers} />
         </div>
       </div>
     </div>
